@@ -1,5 +1,8 @@
 const searchContainer = document.getElementById("searchContainer");
-import { displayMeals } from "../modules/mainDisplay.module.js";
+
+// import from mainDisplay.module
+import { displayMeals, rowData } from "../modules/mainDisplay.module.js";
+// import from sideNav.module
 import { closeSideNav } from "../modules/sideNav.module.js";
 
 function showSearchInputs() {
@@ -27,7 +30,7 @@ function setupSearchInputListeners() {
     nameInput.addEventListener("input", (event) => {
       searchByName(event.target.value);
     });
-    nameInput.addEventListener("blur", function () {
+    nameInput.addEventListener("blur", () => {
       nameInput.value = "";
     });
   }
@@ -36,7 +39,7 @@ function setupSearchInputListeners() {
     letterInput.addEventListener("input", (event) => {
       searchByFirstLetter(event.target.value);
     });
-    letterInput.addEventListener("blur", function () {
+    letterInput.addEventListener("blur", () => {
       letterInput.value = "";
     });
   }
@@ -71,9 +74,4 @@ async function searchByFirstLetter(letter) {
   $(".inner-loading-screen").fadeOut(300);
 }
 
-export {
-  showSearchInputs,
-  hideSearchInputs,
-  setupSearchInputListeners,
-  searchContainer,
-};
+export { showSearchInputs, hideSearchInputs, setupSearchInputListeners };

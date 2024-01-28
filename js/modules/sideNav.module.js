@@ -1,4 +1,4 @@
-export function openSideNav() {
+function openSideNav() {
   $(".side-nav-menu").animate(
     {
       left: 0,
@@ -21,7 +21,7 @@ export function openSideNav() {
   }
 }
 
-export function closeSideNav() {
+function closeSideNav() {
   let boxWidth = $(".side-nav-menu .nav-tab").outerWidth();
   $(".side-nav-menu").animate(
     {
@@ -41,7 +41,7 @@ export function closeSideNav() {
   );
 }
 
-export function sideNav() {
+function sideNav() {
   $(".side-nav-menu i.open-close-icon").on("click", () => {
     if ($(".side-nav-menu").css("left") == "0px") {
       closeSideNav();
@@ -50,3 +50,5 @@ export function sideNav() {
     }
   });
 }
+
+export { sideNav, openSideNav, closeSideNav };

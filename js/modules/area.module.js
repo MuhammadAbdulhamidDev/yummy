@@ -1,9 +1,8 @@
-let rowData = document.getElementById("rowData");
-import { displayMeals } from "../modules/mainDisplay.module.js";
+import { displayMeals, rowData } from "../modules/mainDisplay.module.js";
+import { innerLoader } from "../modules/preloader.module.js";
 
 async function getArea() {
   rowData.innerHTML = "";
-  $(".inner-loading-screen").fadeIn(300);
 
   let response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/list.php?a=list`
@@ -11,19 +10,18 @@ async function getArea() {
   response = await response.json();
 
   displayArea(response.meals);
-  $(".inner-loading-screen").fadeOut(300);
 }
 
-function displayArea(arr) {
+function displayArea(list) {
   let box = "";
-  let length = arr.length;
+  const length = list.length;
 
   for (let i = 0; i < length; i++) {
     box += `
         <div class="col-md-3">
             <div class="areaDiv rounded-2 text-center cursor-pointer text-light">
                 <i class="fa-solid fa-house-laptop fa-4x"></i>
-                <h3>${arr[i].strArea}</h3>
+                <h3>${list[i].strArea}</h3>
             </div>
         </div>
         `;
@@ -47,7 +45,7 @@ function setupAreaListeners() {
 
 async function getAreaMeals(area) {
   rowData.innerHTML = "";
-  $(".inner-loading-screen").fadeIn(300);
+  innerLoader();
 
   let response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`
@@ -55,7 +53,6 @@ async function getAreaMeals(area) {
   response = await response.json();
 
   displayMeals(response.meals.slice(0, 20));
-  $(".inner-loading-screen").fadeOut(300);
 }
 
 export { getArea };

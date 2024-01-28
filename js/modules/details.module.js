@@ -4,7 +4,6 @@ import { closeSideNav } from "../modules/sideNav.module.js";
 async function getMealDetails(mealID) {
   closeSideNav();
   rowData.innerHTML = "";
-  $(".inner-loading-screen").fadeIn(300);
 
   let response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
@@ -12,7 +11,6 @@ async function getMealDetails(mealID) {
   response = await response.json();
 
   displayMealDetails(response.meals[0]);
-  $(".inner-loading-screen").fadeOut(300);
 }
 
 function displayMealDetails(meal) {

@@ -1,4 +1,4 @@
-/* =========== Start General Css Rules =============*/ 
+/* =========== Start General Css Rules =============*/
 body {
   background-color: #0d0d0d;
   color: #f9f6f6 !important;
@@ -20,20 +20,26 @@ body {
 ::placeholder {
   color: #ced4da !important;
 }
+.contact ::placeholder{
+  color: #333 !important;
+}
 /* ============== End General Css Rules ================ */
 /* =============== Start Preloader Div =============== */
 .loading-screen {
-  z-index: 999;
+  z-index: 1100;
   display: flex;
 }
 /* =============== End Preloader Div =============== */
 /* =============== Start Side Nav ================== */
 nav {
   position: fixed;
-  z-index: 999;
+  z-index: 1000;
 }
 .nav-tab {
   background-color: #0d0d0d;
+}
+.side-nav-menu {
+  left: -237.262px;
 }
 .nav-links li {
   letter-spacing: 1px;

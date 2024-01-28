@@ -1,79 +1,78 @@
-// import year.module
+// import from year.module
 import year from "./modules/year.module.js";
 year();
 
-// import preloader.module
-import preloader from "./modules/preloader.module.js";
-preloader();
+// import from preloader.module
+import { outerLoader, innerLoader } from "./modules/preloader.module.js";
+outerLoader();
 
-// import sideNav.module
-import {
-  openSideNav,
-  closeSideNav,
-  sideNav,
-} from "./modules/sideNav.module.js";
-closeSideNav();
+// import from sideNav.module
+import { sideNav, closeSideNav } from "./modules/sideNav.module.js";
 sideNav();
+closeSideNav();
 
-// import api.module
-import * as API from "./modules/api.module.js";
+// select nav links
 let navLinks = document.querySelectorAll(".nav-links ul li");
+
+// import from api.module
+import { getData } from "./modules/api.module.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  innerLoader();
+  getData();
+  hideSearchInputs();
+});
+
+navLinks[0].addEventListener("click", function () {
+  generalFunctions();
+  getData();
+});
+
+// import from search.module
 import {
   showSearchInputs,
   setupSearchInputListeners,
   hideSearchInputs,
-  searchContainer,
 } from "./modules/search.module.js";
-import { getCategories } from "./modules/category.module.js";
-import { getArea } from "./modules/area.module.js";
-import { getIngredients } from "./modules/ingredients.module.js";
-import { showContacts } from "./modules/contact.module.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-  $(".inner-loading-screen").fadeIn(300);
-  API.getData();
-  $(".inner-loading-screen").fadeOut(300);
-});
-
-navLinks[0].addEventListener("click", function () {
-  closeSideNav();
-  $(".inner-loading-screen").fadeIn(300);
-  API.getData();
-  $(".inner-loading-screen").fadeOut(300);
-});
-
 navLinks[1].addEventListener("click", function () {
   $("body").animate({ scrollTop: 0 }, 0);
-  showSearchInputs();
   closeSideNav();
+  innerLoader();
+  showSearchInputs();
   setupSearchInputListeners();
 });
 
-navLinks.forEach((link) => {
-  // Attach event listener to hide search inputs
-  link.addEventListener("click", function () {
-    if (link !== navLinks[1]) {
-      hideSearchInputs();
-    }
-  });
-});
-
-navLinks[2].addEventListener("click", function (event) {
-  closeSideNav();
+// import from category.module
+import { getCategories } from "./modules/category.module.js";
+navLinks[2].addEventListener("click", function () {
+  generalFunctions();
   getCategories();
 });
 
+// import from area.module
+import { getArea } from "./modules/area.module.js";
 navLinks[3].addEventListener("click", function () {
-  closeSideNav();
+  generalFunctions();
   getArea();
 });
 
+// import from ingredients.module
+import { getIngredients } from "./modules/ingredients.module.js";
 navLinks[4].addEventListener("click", function () {
-  closeSideNav();
+  generalFunctions();
   getIngredients();
 });
 
+// import from contact.module
+import { showContacts, clearForm } from "./modules/contact.module.js";
 navLinks[5].addEventListener("click", function () {
-  closeSideNav();
+  generalFunctions();
   showContacts();
+  clearForm();
 });
+
+function generalFunctions() {
+  closeSideNav();
+  hideSearchInputs();
+  innerLoader();
+}

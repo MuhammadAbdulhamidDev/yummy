@@ -82,6 +82,7 @@ function setupInputsListeners() {
   let ageInput = document.getElementById("ageInput");
   let passwordInput = document.getElementById("passwordInput");
   let repasswordInput = document.getElementById("repasswordInput");
+
   nameInput.addEventListener("blur", () => {
     inputsValidation();
   });
@@ -214,4 +215,17 @@ function repasswordValidation() {
   );
 }
 
-export { showContacts };
+function clearForm() {
+  let submitBtn = document.getElementById("submitBtn");
+  submitBtn.addEventListener("click", () => {
+    Swal.fire({
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "success",
+    });
+    document.querySelectorAll(".contact input").forEach((input) => {
+      input.value = "";
+    });
+  });
+}
+export { showContacts, clearForm };

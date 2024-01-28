@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yummy</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="HTML5, CSS3, JavaScript, CRUDS System" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Dev.Muhammad AbdilHamid" />
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon" />
+    <!-- ===== Font Awesome Library ===== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- ===== Bootstrap Stylesheet  ===== -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+    <!-- ===== Main Css Stylesheet  ===== -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="bg-black">
+    <!-- ===== Start Preloader Div ===== -->
+    <div
+      class="loading-screen position-fixed top-0 start-0 end-0 bottom-0 bg-black justify-content-center align-items-center"
+    >
+      <i class="fa fa-spinner fa-spin fa-5x"></i>
+    </div>
+    <!-- ====== End Preloader Div ====== -->
+    <!-- ======= Start Side Nav ====== -->
+    <nav class="side-nav-menu min-vh-100 position-fixed d-flex top-0">
+      <div
+        class="p-4 nav-tab d-flex flex-column justify-content-between align-items-center min-vh-100 text-light"
+      >
+        <div class="nav-links">
+          <ul class="list-unstyled overflow-hidden text-center">
+            <li class="py-3 px-5 position-relative cursor-pointer">Home</li>
+            <li class="py-3 px-5 position-relative cursor-pointer">Search</li>
+            <li class="py-3 px-5 position-relative cursor-pointer">
+              Categories
+            </li>
+            <li class="py-3 px-5 position-relative cursor-pointer">Area</li>
+            <li class="py-3 px-5 position-relative cursor-pointer">
+              Ingredients
+            </li>
+            <li class="py-3 px-5 position-relative cursor-pointer">
+              Contact Us
+            </li>
+          </ul>
+        </div>
+        <div class="nav-footer">
+          <div class="icons mb-3">
+            <a
+              href="https://www.facebook.com/Muhammad.Abdulhamid.Dev?locale=ar_AR"
+              target="_blank"
+              class="text-white text-decoration-none me-3"
+            >
+              <i class="fab fa-facebook-square"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/muhammadabdulhamiddev/?fbclid=IwAR3rELMIhT4so4hB9CMC7iW-m-RWbqlYVSDS8hc01OWaHahywzyGyzeOSnw"
+              target="_blank"
+              class="text-white text-decoration-none me-3"
+            >
+              <i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a
+              href="mailto:muhammad.abdulhamid.dev@gmail.com"
+              target="_blank"
+              class="text-white text-decoration-none me-3"
+            >
+              <i class="fa-solid fa-envelope-open-text"></i
+            ></a>
+            <a
+              href="https://api.whatsapp.com/send/?phone=201278605890&text&type=phone_number&app_absent=0"
+              target="_blank"
+              class="text-white text-decoration-none"
+            >
+              <i class="fa-brands fa-whatsapp-square"></i
+            ></a>
+          </div>
+          <p class="text-center">
+            Copyright &copy; <span id="current-year"></span> <br />
+            All Rights Reserved.
+          </p>
+        </div>
+      </div>
+      <div
+        class="nav-header bg-white py-4 text-center px-2 bg-white text-black min-vh-100"
+      >
+        <div class="logo">
+          <img src="imgs/logo.png" alt="Yummy Logo" />
+        </div>
+        <div class="nav-icon">
+          <i
+            id="close-icon"
+            class="fa-solid open-close-icon fa-2x fa-align-justify cursor-pointer"
+          ></i>
+        </div>
+        <div class="icons">
+          <a
+            href="https://github.com/MuhammadAbdulhamidDev?tab=repositories"
+            target="_blank"
+            class="text-black text-decoration-none d-block my-3"
+          >
+            <i class="fa-brands fa-github-square"></i
+          ></a>
+          <a
+            href="https://muhammadabdulhamiddev.github.io/My_Portfolio/?fbclid=IwAR3DMHKpEZYSkjUp7Sa9CMarGY4vcb6zwZC2c6_0KEGS1qKAzG4rnuFKXiE"
+            target="_blank"
+            class="text-black text-decoration-none d-block"
+          >
+            <i class="fa-solid fa-globe d-block"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <!-- ====== End Side Nav ========== -->
+    <!-- ====== Start Search Div ====== -->
+    <div class="container w-75" id="searchContainer"></div>
+    <!-- ====== End Search Div ====== -->
+    <!-- ====== Start Main Div ====== -->
+    <div class="min-vh-100 position-relative">
+      <div
+        class="inner-loading-screen top-0 start-0 end-0 bottom-0 justify-content-center align-items-center"
+      >
+        <i class="fa fa-spinner fa-spin fa-5x text-light"></i>
+      </div>
+
+      <div class="container">
+        <div class="row py-5 g-4" id="rowData"></div>
+      </div>
+    </div>
+    <!-- ====== End Main Div ====== -->
+    <!-- ======== JS Files ======== -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>

@@ -34,12 +34,12 @@ function displayMealDetails(meal) {
   }
 
   let box = `
-          <div class="col-md-4 text-light">
+          <div class="col-lg-5 col-xl-4 text-light">
             <img class="w-100 rounded-3" src="${meal.strMealThumb}"
             alt="${meal.strMeal}">
             <h2><i class="fa-solid fa-tag me-2"></i> ${meal.strMeal}</h2>
           </div>
-          <div class="col-md-8 text-light">
+          <div class="col-lg-7 col-xl-8 text-light">
             <h2>Instructions</h2>
             <p>${meal.strInstructions}</p>
             <h3><span class="fw-bolder">Area : </span>${meal.strArea}</h3>
